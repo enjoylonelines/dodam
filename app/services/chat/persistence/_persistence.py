@@ -42,6 +42,8 @@ def fallback_payload() -> dict:
 def build_structured_json(decision: dict, payload: dict) -> dict:
     return {
         "_supervisor": decision,
+        "sections": payload.get("sections", []),
+        "execution_status": payload.get("execution_status"),
         "user_status": payload.get("user_status"),
         "easy_summary": payload.get("easy_summary"),
         "key_points": payload.get("key_points", []),
@@ -159,6 +161,8 @@ def build_assistant_response(
     apply_card = ApplyCard(**apply_card_payload) if apply_card_payload else None
     return AssistantMessage(
         chat_message_id=str(assistant_message.chat_message_id),
+        sections=payload.get("sections", []),
+        execution_status=payload.get("execution_status"),
         content=payload.get("content") or "",
         user_status=payload.get("user_status"),
         easy_summary=payload.get("easy_summary"),
@@ -180,6 +184,18 @@ def build_assistant_response(
     )
 
 
+def build_context_policy_links(policy_links: list[dict], payload: dict) -> list[dict]:
+    """VIEWED is slot metadata only, not a DB action_type enum value."""
+    links = list(policy_links)
+    seen = {link.get("policy_slug") for link in links}
+    for policy in payload.get("policies", []):
+        slug = policy.get("slug")
+        if slug and slug not in seen:
+            links.append({"policy_slug": slug, "action_type": "VIEWED"})
+            seen.add(slug)
+    return links
+
+
 async def persist_assistant_outputs(
     db: AsyncSession,
     *,
@@ -198,6 +214,8 @@ async def persist_assistant_outputs(
 
     assistant_sequence = await ChatRepository.next_sequence_no(db, session_id)
     structured_json = build_structured_json(decision, payload)
+    if graph_result.get("tool_execution"):
+        structured_json["_tool_execution"] = graph_result["tool_execution"]
     assistant_message = await ChatRepository.save_message(
         db,
         ChatMessage(
@@ -211,7 +229,11 @@ async def persist_assistant_outputs(
         ),
     )
 
-    slug_to_policy_id = await resolve_policy_ids(db, policy_links_to_save)
+    slot_policy_links = (
+        build_context_policy_links(policy_links_to_save, payload)
+        if graph_result.get("tool_execution") else policy_links_to_save
+    )
+    slug_to_policy_id = await resolve_policy_ids(db, slot_policy_links)
     await ChatRepository.bulk_save_message_policies(
         db,
         build_policy_link_rows(
@@ -246,7 +268,7 @@ async def persist_assistant_outputs(
 
     next_slot = build_next_slot(
         current_slot=current_slot or {},
-        policy_links=policy_links_to_save,
+        policy_links=slot_policy_links,
         branch_policies=payload.get("policies", []),
         slug_to_policy_id=slug_to_policy_id,
         profile=graph_result.get("profile"),

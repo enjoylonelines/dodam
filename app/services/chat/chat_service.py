@@ -2,6 +2,7 @@ import asyncio
 import contextlib
 import json
 import logging
+from functools import partial
 from collections.abc import AsyncIterator
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -78,6 +79,10 @@ async def _classify_follow_up_intent(*args: Any, **kwargs: Any) -> str:
 async def _map_follow_up_answers(*args: Any, **kwargs: Any) -> list[dict]:
     _follow_up_module._FOLLOW_UP_LLM = _FOLLOW_UP_LLM
     return await _follow_up_module.map_follow_up_answers(*args, **kwargs)
+
+
+async def _execution_active(db, session_id, cancel_event):
+    return not await _is_cancelled_or_deleted(db, session_id, cancel_event)
 
 
 def _sse_event(payload: dict[str, Any]) -> str:
@@ -258,6 +263,7 @@ class ChatService:
                 history=history,
                 slot=session.slot_json or {},
                 recent_assistant_policy=recent_assistant_policy,
+                execution_guard=partial(_execution_active, db, session.chat_session_id, cancel_event),
             )
 
             if await _is_cancelled_or_deleted(
@@ -475,6 +481,7 @@ class ChatService:
                         history=history_snapshot,
                         slot=slot_snapshot,
                         recent_assistant_policy=recent_policy_snapshot,
+                        execution_guard=partial(_execution_active, task_db, session.chat_session_id, cancel_event),
                     )
                     request = await ChatRequestRepository.find_by_id(task_db, request_id)
                     if request is None or request.status != "processing":
@@ -908,6 +915,7 @@ class ChatService:
                         on_token=_queue_token,
                         on_progress=_queue_progress,
                         preseed_result=preseed_result,
+                        execution_guard=partial(_execution_active, db, session.chat_session_id, cancel_event),
                     )
                 finally:
                     await stream_queue.put(None)

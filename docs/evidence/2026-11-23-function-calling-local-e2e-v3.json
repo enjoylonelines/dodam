@@ -1,0 +1,249 @@
+{
+  "boundary": "Real FastAPI ASGI HTTP + local source-backed PGVector corpus + actual OpenAI. No browser/network E2E.",
+  "corpus_embeddings": 21,
+  "steps": [
+    {
+      "name": "signup",
+      "status": 201,
+      "user_created": true
+    },
+    {
+      "name": "create_session",
+      "status": 201
+    },
+    {
+      "name": "single_information",
+      "status": 201,
+      "elapsed_ms": 1767.928,
+      "execution_status": "needs_input",
+      "section_count": 1,
+      "sections": [
+        {
+          "result_ref": "result_1",
+          "tool": "recommend_policies",
+          "intent": "recommend",
+          "status": "needs_input",
+          "payload": {
+            "content": "맞춤 추천을 위해 몇 가지만 여쭤볼게요. 먼저 자녀 나이가 어떻게 되나요? (이어서 소득, 지역, 가구 특성도 확인할게요.)",
+            "user_status": null,
+            "sources": [],
+            "policies": [],
+            "evidences": [],
+            "actions": [],
+            "apply_card": null,
+            "easy_summary": null,
+            "key_points": [],
+            "disclaimer": false,
+            "slot_request": {
+              "flow_type": "recommend",
+              "request_id": null,
+              "target_policy_id": null,
+              "source_type": "CHAT",
+              "source_ref_id": null,
+              "target_type": null,
+              "summary_mode": null,
+              "current": "child_age",
+              "awaiting": [
+                "child_age",
+                "income",
+                "region",
+                "special"
+              ],
+              "multi": [
+                "special"
+              ],
+              "fields": [
+                {
+                  "key": "child_age",
+                  "label": "자녀 나이",
+                  "options": [
+                    {
+                      "label": "태아",
+                      "value": "preborn"
+                    },
+                    {
+                      "label": "0세",
+                      "value": "0"
+                    },
+                    {
+                      "label": "1세",
+                      "value": "1"
+                    },
+                    {
+                      "label": "2~5세",
+                      "value": "2-5"
+                    },
+                    {
+                      "label": "6~12세",
+                      "value": "6-12"
+                    },
+                    {
+                      "label": "13세 이상",
+                      "value": "13+"
+                    }
+                  ]
+                },
+                {
+                  "key": "income",
+                  "label": "소득",
+                  "options": [
+                    {
+                      "label": "중위 50% 이하",
+                      "value": "low"
+                    },
+                    {
+                      "label": "중위 100% 이하",
+                      "value": "mid1"
+                    },
+                    {
+                      "label": "중위 150% 이하",
+                      "value": "mid2"
+                    },
+                    {
+                      "label": "중위 150% 초과",
+                      "value": "high"
+                    },
+                    {
+                      "label": "모름",
+                      "value": "unknown"
+                    }
+                  ]
+                },
+                {
+                  "key": "region",
+                  "label": "지역",
+                  "options": [
+                    {
+                      "label": "전국",
+                      "value": "national"
+                    },
+                    {
+                      "label": "서울",
+                      "value": "seoul"
+                    },
+                    {
+                      "label": "경기",
+                      "value": "gyeonggi"
+                    },
+                    {
+                      "label": "인천",
+                      "value": "incheon"
+                    },
+                    {
+                      "label": "부산",
+                      "value": "busan"
+                    },
+                    {
+                      "label": "대구",
+                      "value": "daegu"
+                    },
+                    {
+                      "label": "대전",
+                      "value": "daejeon"
+                    },
+                    {
+                      "label": "광주",
+                      "value": "gwangju"
+                    },
+                    {
+                      "label": "울산",
+                      "value": "ulsan"
+                    },
+                    {
+                      "label": "세종",
+                      "value": "sejong"
+                    },
+                    {
+                      "label": "강원",
+                      "value": "gangwon"
+                    },
+                    {
+                      "label": "충북",
+                      "value": "chungbuk"
+                    },
+                    {
+                      "label": "충남",
+                      "value": "chungnam"
+                    },
+                    {
+                      "label": "전북",
+                      "value": "jeonbuk"
+                    },
+                    {
+                      "label": "전남",
+                      "value": "jeonnam"
+                    },
+                    {
+                      "label": "경북",
+                      "value": "gyeongbuk"
+                    },
+                    {
+                      "label": "경남",
+                      "value": "gyeongnam"
+                    },
+                    {
+                      "label": "제주",
+                      "value": "jeju"
+                    }
+                  ]
+                },
+                {
+                  "key": "special",
+                  "label": "가구 특성",
+                  "options": [
+                    {
+                      "label": "한부모",
+                      "value": "single"
+                    },
+                    {
+                      "label": "다문화",
+                      "value": "multi"
+                    },
+                    {
+                      "label": "장애",
+                      "value": "disabled"
+                    },
+                    {
+                      "label": "다자녀",
+                      "value": "many"
+                    },
+                    {
+                      "label": "맞벌이",
+                      "value": "dual"
+                    },
+                    {
+                      "label": "저소득",
+                      "value": "low_income"
+                    },
+                    {
+                      "label": "국가유공",
+                      "value": "veteran"
+                    }
+                  ]
+                }
+              ]
+            },
+            "profile_confirm": null,
+            "eligibility_result": null,
+            "suggested_actions": [],
+            "policy_selection": null,
+            "evidence_review": {
+              "verdict": "PASS",
+              "required_for": [],
+              "evidence_count": 0,
+              "complete_evidence_count": 0,
+              "reasons": []
+            },
+            "claim_evidence_links": []
+          }
+        }
+      ],
+      "content": "맞춤 추천을 위해 몇 가지만 여쭤볼게요. 먼저 자녀 나이가 어떻게 되나요? (이어서 소득, 지역, 가구 특성도 확인할게요.)",
+      "policy_selection": null
+    },
+    {
+      "name": "single_evidence_assertion",
+      "status": "failed"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "boundary": "Real FastAPI ASGI HTTP + local source-backed PGVector corpus + actual OpenAI. No browser/network E2E.",
+  "corpus_embeddings": 21,
+  "steps": [
+    {
+      "name": "signup",
+      "status": 201,
+      "user_created": true
+    },
+    {
+      "name": "create_session",
+      "status": 201
+    }
+  ]
+}

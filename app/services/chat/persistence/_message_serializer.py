@@ -23,6 +23,8 @@ def unwrap_message_meta(structured_json: dict | None) -> dict:
     apply_card_payload = structured_json.get("apply_card")
     apply_card = ApplyCard(**apply_card_payload) if apply_card_payload else None
     return {
+        "sections": structured_json.get("sections", []),
+        "execution_status": structured_json.get("execution_status"),
         "user_status": structured_json.get("user_status"),
         "easy_summary": structured_json.get("easy_summary"),
         "key_points": structured_json.get("key_points", []),

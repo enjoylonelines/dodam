@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -18,6 +19,10 @@ class Settings(BaseSettings):
     # Application request traces require a separate opt-in from offline
     # experiment exports because they may contain operational metadata.
     langfuse_recommendation_tracing_enabled: bool = False
+    # Opt-in until the orchestration A/B and service integration are reviewed.
+    chat_routing_mode: str = "legacy"
+    chat_function_max_calls: int = Field(default=4, ge=1, le=8)
+    chat_function_timeout_seconds: float = Field(default=120, gt=0, le=300)
     jwt_secret_key: str
     jwt_algorithm: str
     access_token_expire_minutes: int

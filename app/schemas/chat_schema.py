@@ -131,8 +131,18 @@ class SimilarPolicyChatItem(BaseModel):
     similarity_reason: str | None = None
 
 
+class AssistantSection(BaseModel):
+    result_ref: str
+    tool: str
+    intent: str
+    status: str
+    payload: dict[str, Any]
+
+
 class AssistantMessage(BaseModel):
     chat_message_id: str
+    sections: list[AssistantSection] = Field(default_factory=list)
+    execution_status: str | None = None
     content: str
     user_status: str | None = None
     easy_summary: str | None = None
@@ -173,6 +183,8 @@ class ChatMessageSendResponse(BaseModel):
 
 
 class ChatMessageItem(BaseModel):
+    sections: list[AssistantSection] = Field(default_factory=list)
+    execution_status: str | None = None
     chat_message_id: str
     role: str
     message_type: str

@@ -1,0 +1,3391 @@
+{
+  "version": "function-calling-orchestration-ab-v1",
+  "model": "gpt-5.4-mini",
+  "dataset_sha256": "121f60a066963f71f0510037d23726848b87cd87bd636d0f3855acadff1e82a8",
+  "base_revision": "ac27014485a2986c0b41588fe5eac83be63ac402",
+  "boundary": "Live LLM routing + shared synthetic business fixtures. No real RAG/DB/UI or answer-faithfulness evaluation.",
+  "repeats": 2,
+  "rows": [
+    {
+      "case_id": "S01",
+      "group": "single",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2885,
+        "output_tokens": 58,
+        "total_tokens": 2943
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "policy_summary",
+        "raw": "{\"intent\":\"policy_summary\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원",
+      "elapsed_ms": 1365.135,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S01",
+      "group": "single",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2065,
+        "output_tokens": 58,
+        "total_tokens": 2123
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_eaaab505c66e44f59d45df627ce9e349",
+            "tool": "get_policy_information",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 내용을 알려줘.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "7ec4e702163fd4f01eb8f70e63ca88961fd7cbb1b141fc5103310414f7abd59d",
+            "elapsed_ms": 0.009
+          }
+        ],
+        "usage": {
+          "input_tokens": 2065,
+          "output_tokens": 58,
+          "total_tokens": 2123
+        },
+        "model_calls": 2,
+        "elapsed_ms": 5986.511
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 5986.676,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S02",
+      "group": "single",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2124,
+        "output_tokens": 133,
+        "total_tokens": 2257
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_d07bb20bee0147f996c64e2c24b2f705",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 신청 방법과 준비 서류, 신청 절차, 기간을 알려줘.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "64326e077d906fb00d6b9e0895d7e6acf8b2ab2103cfae4caafb55d5860777e1",
+            "elapsed_ms": 0.021
+          }
+        ],
+        "usage": {
+          "input_tokens": 2124,
+          "output_tokens": 133,
+          "total_tokens": 2257
+        },
+        "model_calls": 2,
+        "elapsed_ms": 3019.243
+      },
+      "content": "[가상 업무 결과] apply: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 3019.343,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S02",
+      "group": "single",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2888,
+        "output_tokens": 57,
+        "total_tokens": 2945
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "apply",
+        "raw": "{\"intent\":\"apply\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] apply: 가상 출산준비 지원",
+      "elapsed_ms": 2083.526,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S03",
+      "group": "single",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2892,
+        "output_tokens": 55,
+        "total_tokens": 2947
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "compare",
+        "raw": "{\"intent\":\"compare\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1300.406,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S03",
+      "group": "single",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2194,
+        "output_tokens": 162,
+        "total_tokens": 2356
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_335a0c2badf542d2bb234b0760df82ea",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원과 가상 보육비 지원을 비교해줘. 비교 기준: 대상, 지원 내용, 신청 기간, 신청 방법, 필요 서류, 유의사항.",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "20ec4e7e0e5fc9733f2632bcbe44726d6d6350685c6479ecbe4bdd1c1a307f8d",
+            "elapsed_ms": 0.017
+          }
+        ],
+        "usage": {
+          "input_tokens": 2194,
+          "output_tokens": 162,
+          "total_tokens": 2356
+        },
+        "model_calls": 2,
+        "elapsed_ms": 3251.662
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3251.738,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S04",
+      "group": "single",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2114,
+        "output_tokens": 121,
+        "total_tokens": 2235
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_36a94012d8eb4b84b51230e2ca8453a9",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 자격을 내가 충족하는지 확인해줘.",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "175c5c788896ec8050f05a8076444f581ce316050a068e0c9aa394a0dbf38e19",
+            "elapsed_ms": 0.02
+          }
+        ],
+        "usage": {
+          "input_tokens": 2114,
+          "output_tokens": 121,
+          "total_tokens": 2235
+        },
+        "model_calls": 2,
+        "elapsed_ms": 2668.13
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 2668.194,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S04",
+      "group": "single",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2892,
+        "output_tokens": 58,
+        "total_tokens": 2950
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "elapsed_ms": 955.414,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S01",
+      "group": "single",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2079,
+        "output_tokens": 72,
+        "total_tokens": 2151
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_3e4545c98a134a688e36e4d78871a9e9",
+            "tool": "get_policy_information",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 내용(대상, 지원 내용, 신청 방법/기간 등 원문 정보)",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "eeba1337e5ffaa1c40860610b39fabf4d035b0fc9cf0ae63963cf1dae703ed56",
+            "elapsed_ms": 0.023
+          }
+        ],
+        "usage": {
+          "input_tokens": 2079,
+          "output_tokens": 72,
+          "total_tokens": 2151
+        },
+        "model_calls": 2,
+        "elapsed_ms": 7051.892
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 7052.011,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S01",
+      "group": "single",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2885,
+        "output_tokens": 58,
+        "total_tokens": 2943
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "policy_summary",
+        "raw": "{\"intent\":\"policy_summary\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원",
+      "elapsed_ms": 1371.511,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S02",
+      "group": "single",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2888,
+        "output_tokens": 59,
+        "total_tokens": 2947
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "apply",
+        "raw": "{\"intent\":\"apply\",\"secondary_intents\":[\"summary\"],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [
+          "summary"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] apply: 가상 출산준비 지원",
+      "elapsed_ms": 1482.434,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S02",
+      "group": "single",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2116,
+        "output_tokens": 125,
+        "total_tokens": 2241
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_25b1d23a0a154058bdfdd32989efc25b",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 신청 준비와 방법을 알려줘.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "0c751c2313f8e826d4c8118a4b2d364aef2f7035c45da4ade20c8f43230a6b5a",
+            "elapsed_ms": 0.009
+          }
+        ],
+        "usage": {
+          "input_tokens": 2116,
+          "output_tokens": 125,
+          "total_tokens": 2241
+        },
+        "model_calls": 2,
+        "elapsed_ms": 3576.728
+      },
+      "content": "[가상 업무 결과] apply: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 3576.827,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S03",
+      "group": "single",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2172,
+        "output_tokens": 75,
+        "total_tokens": 2247
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_30d0797867c248a88e3c0083c755a829",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원과 가상 보육비 지원을 비교해줘.",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "12d173904ed69069706bb5a05c67dddb8586ab82b127af8cc8343009ff31aded",
+            "elapsed_ms": 0.008
+          }
+        ],
+        "usage": {
+          "input_tokens": 2172,
+          "output_tokens": 75,
+          "total_tokens": 2247
+        },
+        "model_calls": 2,
+        "elapsed_ms": 2547.05
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 2547.115,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S03",
+      "group": "single",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2892,
+        "output_tokens": 55,
+        "total_tokens": 2947
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "compare",
+        "raw": "{\"intent\":\"compare\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1049.63,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S04",
+      "group": "single",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2892,
+        "output_tokens": 58,
+        "total_tokens": 2950
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "elapsed_ms": 2238.551,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "S04",
+      "group": "single",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 2112,
+        "output_tokens": 155,
+        "total_tokens": 2267
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_4c99979ec87e45edb74a58226a61133e",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 자격을 내가 충족하는지 확인",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "1ff658834ec780295086a15f4bf2a6565414aeb585f1f9dd4537af97f3fa7980",
+            "elapsed_ms": 0.009
+          }
+        ],
+        "usage": {
+          "input_tokens": 2112,
+          "output_tokens": 155,
+          "total_tokens": 2267
+        },
+        "model_calls": 2,
+        "elapsed_ms": 2782.759
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 2782.841,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C01",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2899,
+        "output_tokens": 57,
+        "total_tokens": 2956
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "compare",
+        "raw": "{\"intent\":\"compare\",\"secondary_intents\":[\"apply\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "apply"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1173.297,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.3333333333333333,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C01",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 5599,
+        "output_tokens": 200,
+        "total_tokens": 5799
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_89b1edbb16684c5bb2b32160be141b0f",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원과 가상 보육비 지원의 비교",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "37dd04368532af17dba2ef7881b776b0fa1cf3a1d72b1b615088d7367ecd5543",
+            "elapsed_ms": 0.009
+          },
+          {
+            "call_id": "call_4b24884b20004edb99501659d58e4bc7",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원 신청 준비",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "29d435cf8c3e853781bdf7ea0eac1557c8f0a564d9c3ac608c5ccf09a5230b4f",
+            "elapsed_ms": 0.014
+          },
+          {
+            "call_id": "call_a184e31ebb684940a00e04dee10fb7a1",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원 신청 준비",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "d6c98ae05a21f3010dc1d17eeb320e7eb167c263eabcdf9eb851eea4e120930c",
+            "elapsed_ms": 0.008
+          }
+        ],
+        "usage": {
+          "input_tokens": 5599,
+          "output_tokens": 200,
+          "total_tokens": 5799
+        },
+        "model_calls": 4,
+        "elapsed_ms": 5061.12
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] apply: 가상 출산준비 지원\n\n[가상 업무 결과] apply: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 5061.234,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C02",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3536,
+        "output_tokens": 146,
+        "total_tokens": 3682
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "eligibility",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_cb4b931f61a24e278746f2762f404f4f",
+            "tool": "get_policy_information",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원 내용 확인",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "e4b39ad384d37daa69b3dc585295fc2a1a0140ab838c9d1342178c40ce1ca0f3",
+            "elapsed_ms": 0.02
+          },
+          {
+            "call_id": "call_661a32d742734a5f837f0f0854e5c6bd",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원 자격 확인",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "03bd916629206007fb2bd3a46af2179a7cb37ee8a1680daae874aa2b1d9d6d3c",
+            "elapsed_ms": 0.02
+          }
+        ],
+        "usage": {
+          "input_tokens": 3536,
+          "output_tokens": 146,
+          "total_tokens": 3682
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4028.781
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원\n\n[가상 업무 결과] eligibility: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 4028.914,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C02",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2894,
+        "output_tokens": 61,
+        "total_tokens": 2955
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "policy_summary",
+        "raw": "{\"intent\":\"policy_summary\",\"secondary_intents\":[\"eligibility\"],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [
+          "eligibility"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원",
+      "elapsed_ms": 1694.622,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C03",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2891,
+        "output_tokens": 60,
+        "total_tokens": 2951
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[\"apply\"],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":true,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [
+          "apply"
+        ],
+        "is_context_dependent": true,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "elapsed_ms": 977.048,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C03",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3591,
+        "output_tokens": 167,
+        "total_tokens": 3758
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_7ba35621f23f40d88d819bba7b9d332d",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 자격 확인",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "35748a7379e020b143fd9cf621f04b0f83d04f023b239900404dcd6716d6eeac",
+            "elapsed_ms": 0.007
+          },
+          {
+            "call_id": "call_7fe85b2433964661839ea0ca796a6d7a",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 신청 준비 정보",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "9dd7bdd46012fdc6c3c56253a0c59ff715b487fdb56cae5cefac2aaa1d98e267",
+            "elapsed_ms": 0.025
+          }
+        ],
+        "usage": {
+          "input_tokens": 3591,
+          "output_tokens": 167,
+          "total_tokens": 3758
+        },
+        "model_calls": 3,
+        "elapsed_ms": 3927.196
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원\n\n[가상 업무 결과] apply: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3927.381,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C04",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3646,
+        "output_tokens": 116,
+        "total_tokens": 3762
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_5aaf156b3b22462998cd069d68663aa5",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 신청 방법과 준비 정보를 안내해줘.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "33a1cb19bc3dfbe3f7d3221bb7410c847f97a38827456b860fc4f8ce4e46b99c",
+            "elapsed_ms": 0.009
+          },
+          {
+            "call_id": "call_17ec780912d04fc8b25e27113f25891f",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 신청 방법과 준비 정보를 안내해줘.",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "57dcbb5bd6d16d22f900e447bc5b499e7b238c37e6f37c6b59a2d94eced309bf",
+            "elapsed_ms": 0.011
+          }
+        ],
+        "usage": {
+          "input_tokens": 3646,
+          "output_tokens": 116,
+          "total_tokens": 3762
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4025.815
+      },
+      "content": "[가상 업무 결과] apply: 가상 출산준비 지원\n\n[가상 업무 결과] apply: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 4026.027,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C04",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2895,
+        "output_tokens": 55,
+        "total_tokens": 2950
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "apply",
+        "raw": "{\"intent\":\"apply\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "대상 정책을 선택해주세요.",
+      "elapsed_ms": 1098.413,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.0,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C05",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2895,
+        "output_tokens": 55,
+        "total_tokens": 2950
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "summary",
+        "raw": "{\"intent\":\"summary\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "대상 정책을 선택해주세요.",
+      "elapsed_ms": 946.084,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.0,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C05",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3509,
+        "output_tokens": 155,
+        "total_tokens": 3664
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "policy_summary",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_f80b624bbbc0464bb1584725e6be2a8a",
+            "tool": "get_policy_information",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 내용 요약",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "b2830754e7c0d369057e7f88f6076f8cc2e102e22e7ce08ec7750f1e166c4496",
+            "elapsed_ms": 0.012
+          },
+          {
+            "call_id": "call_9ce2060332bd47288902bd5595a4e007",
+            "tool": "get_policy_information",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 내용 요약",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "f6d54eb95bf030ff26773f2f0ed7ab3ad58d8e224d474e856cb77f413b0ed14c",
+            "elapsed_ms": 0.016
+          }
+        ],
+        "usage": {
+          "input_tokens": 3509,
+          "output_tokens": 155,
+          "total_tokens": 3664
+        },
+        "model_calls": 3,
+        "elapsed_ms": 3988.911
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원\n\n[가상 업무 결과] policy_summary: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3989.01,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C06",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3755,
+        "output_tokens": 199,
+        "total_tokens": 3954
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ],
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_8a1c2d7768814795a89869a4c9c3a3b8",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원과 가상 보육비 지원을 비교해줘.",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "12d173904ed69069706bb5a05c67dddb8586ab82b127af8cc8343009ff31aded",
+            "elapsed_ms": 0.008
+          },
+          {
+            "call_id": "call_8c32948879074f85b36580491053e297",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원 자격을 확인해줘.",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "266d854cd4f32a1cf8ba0583b50465fe587daf3afb464069f733aafd5a3182c8",
+            "elapsed_ms": 0.008
+          }
+        ],
+        "usage": {
+          "input_tokens": 3755,
+          "output_tokens": 199,
+          "total_tokens": 3954
+        },
+        "model_calls": 3,
+        "elapsed_ms": 3742.65
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3742.786,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C06",
+      "group": "compound",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2904,
+        "output_tokens": 58,
+        "total_tokens": 2962
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "compare",
+        "raw": "{\"intent\":\"compare\",\"secondary_intents\":[\"eligibility\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "eligibility"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1171.166,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C01",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 5596,
+        "output_tokens": 214,
+        "total_tokens": 5810
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_a40ef2344cd0424eb1d1fe49a5b9867f",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원과 가상 보육비 지원 비교",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "cde40767659c65a2d44cb85487072abb76f9aa91dbe9ed0cd87d057381550551",
+            "elapsed_ms": 0.018
+          },
+          {
+            "call_id": "call_e4b0985f9a704ae782b983533a90e0b1",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원 신청 준비",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "29d435cf8c3e853781bdf7ea0eac1557c8f0a564d9c3ac608c5ccf09a5230b4f",
+            "elapsed_ms": 0.017
+          },
+          {
+            "call_id": "call_421043e12ca84013962ca2a688d21f3d",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원 신청 준비",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "d6c98ae05a21f3010dc1d17eeb320e7eb167c263eabcdf9eb851eea4e120930c",
+            "elapsed_ms": 0.023
+          }
+        ],
+        "usage": {
+          "input_tokens": 5596,
+          "output_tokens": 214,
+          "total_tokens": 5810
+        },
+        "model_calls": 4,
+        "elapsed_ms": 4884.866
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] apply: 가상 출산준비 지원\n\n[가상 업무 결과] apply: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 4884.969,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C01",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2899,
+        "output_tokens": 57,
+        "total_tokens": 2956
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "compare",
+        "raw": "{\"intent\":\"compare\",\"secondary_intents\":[\"apply\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "apply"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1062.772,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.3333333333333333,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C02",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2894,
+        "output_tokens": 61,
+        "total_tokens": 2955
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[\"policy_summary\"],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [
+          "policy_summary"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 출산준비 지원",
+      "elapsed_ms": 1042.24,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C02",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3579,
+        "output_tokens": 177,
+        "total_tokens": 3756
+      },
+      "tasks": [
+        [
+          "policy_summary",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "eligibility",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_63911cf916fb48039690305958eb232b",
+            "tool": "get_policy_information",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 내용, 대상, 신청 방법, 기간 등 원문 정보를 확인하고 싶습니다.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "8cc6774cb4e3ee7971f816b604f0acd710bc66a93cbbe6b33426e7dc19eb59a9",
+            "elapsed_ms": 0.009
+          },
+          {
+            "call_id": "call_50e66b7cdedb42768e7a8a0ff5d59947",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원에 대해 현재 프로필 기준으로 자격이 되는지 확인하고 싶습니다.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "4a8c4852b3b1e13287fbbf75020b003aa3a159150bc2026e6ecd61fdf8079df8",
+            "elapsed_ms": 0.02
+          }
+        ],
+        "usage": {
+          "input_tokens": 3579,
+          "output_tokens": 177,
+          "total_tokens": 3756
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4105.235
+      },
+      "content": "[가상 업무 결과] policy_summary: 가상 출산준비 지원\n\n[가상 업무 결과] eligibility: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 4105.381,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C03",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3590,
+        "output_tokens": 162,
+        "total_tokens": 3752
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_a6bf16167d024297935a5fde84251ccf",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 자격 확인",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "35748a7379e020b143fd9cf621f04b0f83d04f023b239900404dcd6716d6eeac",
+            "elapsed_ms": 0.01
+          },
+          {
+            "call_id": "call_e1b132374d1541de858cf11e0fb939f3",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 신청 준비",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "910c880dbe4311b1eeb36571e9f8a80e543e6f0a7673d2dc5f3803760a1e31f8",
+            "elapsed_ms": 0.012
+          }
+        ],
+        "usage": {
+          "input_tokens": 3590,
+          "output_tokens": 162,
+          "total_tokens": 3752
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4068.139
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원\n\n[가상 업무 결과] apply: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 4068.299,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C03",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2891,
+        "output_tokens": 60,
+        "total_tokens": 2951
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[\"apply\"],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":true,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [
+          "apply"
+        ],
+        "is_context_dependent": true,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "elapsed_ms": 1223.891,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C04",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2895,
+        "output_tokens": 55,
+        "total_tokens": 2950
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "apply",
+        "raw": "{\"intent\":\"apply\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "대상 정책을 선택해주세요.",
+      "elapsed_ms": 1053.395,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.0,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C04",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3646,
+        "output_tokens": 157,
+        "total_tokens": 3803
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ],
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_a515395caf724c49ac88623fc6a1927c",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원의 신청 방법과 준비 정보를 안내해줘.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "33a1cb19bc3dfbe3f7d3221bb7410c847f97a38827456b860fc4f8ce4e46b99c",
+            "elapsed_ms": 0.015
+          },
+          {
+            "call_id": "call_51fb4311729e4e748b48fd5c5f51d932",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 신청 방법과 준비 정보를 안내해줘.",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "57dcbb5bd6d16d22f900e447bc5b499e7b238c37e6f37c6b59a2d94eced309bf",
+            "elapsed_ms": 0.015
+          }
+        ],
+        "usage": {
+          "input_tokens": 3646,
+          "output_tokens": 157,
+          "total_tokens": 3803
+        },
+        "model_calls": 3,
+        "elapsed_ms": 3780.612
+      },
+      "content": "[가상 업무 결과] apply: 가상 출산준비 지원\n\n[가상 업무 결과] apply: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3780.696,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C05",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 914,
+        "output_tokens": 52,
+        "total_tokens": 966
+      },
+      "tasks": [],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "blocked",
+        "calls": [
+          {
+            "call_id": "call_03c317c557824cd6b99b6cf13b5a4e90",
+            "tool": "get_policy_information",
+            "status": "blocked",
+            "error": "one_policy_required"
+          }
+        ],
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 52,
+          "total_tokens": 966
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1183.599
+      },
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.\n\n일부 요청은 완료하지 못했습니다. 위 내용은 확인된 결과만 표시합니다.",
+      "error": "blocked",
+      "elapsed_ms": 1183.666,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.0,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C05",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2895,
+        "output_tokens": 55,
+        "total_tokens": 2950
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "summary",
+        "raw": "{\"intent\":\"summary\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "대상 정책을 선택해주세요.",
+      "elapsed_ms": 925.893,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.0,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C06",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2904,
+        "output_tokens": 60,
+        "total_tokens": 2964
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "compare",
+        "raw": "{\"intent\":\"compare\",\"secondary_intents\":[\"eligibility\"],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [
+          "eligibility"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "비교할 두 정책을 선택해주세요.",
+      "elapsed_ms": 1203.654,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.0,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "C06",
+      "group": "compound",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3749,
+        "output_tokens": 164,
+        "total_tokens": 3913
+      },
+      "tasks": [
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ],
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_34a16362b9ce4fb399079091166fa6e5",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 출산준비 지원과 가상 보육비 지원의 비교",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "37dd04368532af17dba2ef7881b776b0fa1cf3a1d72b1b615088d7367ecd5543",
+            "elapsed_ms": 0.01
+          },
+          {
+            "call_id": "call_5e09a9473bb5452ea9a2dec588b1f1c9",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "가상 보육비 지원의 자격 확인",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "35748a7379e020b143fd9cf621f04b0f83d04f023b239900404dcd6716d6eeac",
+            "elapsed_ms": 0.007
+          }
+        ],
+        "usage": {
+          "input_tokens": 3749,
+          "output_tokens": 164,
+          "total_tokens": 3913
+        },
+        "model_calls": 3,
+        "elapsed_ms": 3287.691
+      },
+      "content": "[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3287.801,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D01",
+      "group": "dependent",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2863,
+        "output_tokens": 57,
+        "total_tokens": 2920
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "recommend",
+        "raw": "{\"intent\":\"recommend\",\"secondary_intents\":[\"apply\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.95,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "apply"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.95,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1642.573,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D01",
+      "group": "dependent",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3614,
+        "output_tokens": 182,
+        "total_tokens": 3796
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ],
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_42978856c05b4cc19042d136bfb23787",
+            "tool": "recommend_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "사용자 상황에 맞는 정책 추천: 임신, 자녀 0세, 소득 중위소득100이하, 지역 경기. 추천 목록을 원함.",
+              "policy_slugs": []
+            },
+            "fingerprint": "fb64335cbc1ecb888714443c741effed93fbe56f0b7c96286f8a86f430f0bcd5",
+            "elapsed_ms": 0.009
+          },
+          {
+            "call_id": "call_89b7c2fa9c2842f4b84d0f93b0d051b1",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "추천 목록 첫 번째 정책의 신청 준비: 가상 출산준비 지원의 신청 방법과 준비 서류/절차를 알려줘.",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "cd82dda14ba834aedcdb82b46cd64710cd5310c343756c5a9b43cabc4bc2f53b",
+            "elapsed_ms": 0.018
+          }
+        ],
+        "usage": {
+          "input_tokens": 3614,
+          "output_tokens": 182,
+          "total_tokens": 3796
+        },
+        "model_calls": 3,
+        "elapsed_ms": 5451.189
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] apply: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 5451.335,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D02",
+      "group": "dependent",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3610,
+        "output_tokens": 175,
+        "total_tokens": 3785
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ],
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_1d80e6ee579e4cc68c060464bf4a06bb",
+            "tool": "recommend_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "임신 중이고 경기 지역, 중위소득 100이하, 영유아 관련 정책 추천",
+              "policy_slugs": []
+            },
+            "fingerprint": "4519cb18ed1ad6f5169edf2fbd9b2ce102d84788747cb91bbaabd1a9fb120ed4",
+            "elapsed_ms": 0.01
+          },
+          {
+            "call_id": "call_10f72cc3ce634d9789ce284da92c8484",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "첫 번째 정책과 두 번째 정책 비교",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "a809a3c821e4bf924d6692e94c0fe3f9af745e6a3845c12dafced12386b7ada5",
+            "elapsed_ms": 0.019
+          }
+        ],
+        "usage": {
+          "input_tokens": 3610,
+          "output_tokens": 175,
+          "total_tokens": 3785
+        },
+        "model_calls": 3,
+        "elapsed_ms": 3977.333
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 3977.423,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D02",
+      "group": "dependent",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2863,
+        "output_tokens": 57,
+        "total_tokens": 2920
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "recommend",
+        "raw": "{\"intent\":\"recommend\",\"secondary_intents\":[\"compare\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "compare"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1021.62,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D03",
+      "group": "dependent",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2861,
+        "output_tokens": 58,
+        "total_tokens": 2919
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "recommend",
+        "raw": "{\"intent\":\"recommend\",\"secondary_intents\":[\"eligibility\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.95,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "eligibility"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.95,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 939.072,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D03",
+      "group": "dependent",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3552,
+        "output_tokens": 159,
+        "total_tokens": 3711
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ],
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_8cb586b0abe34fe68e8106b262a7f87a",
+            "tool": "recommend_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "임신 중이고 경기 지역, 중위소득 100 이하 조건에 맞는 정책을 추천해줘",
+              "policy_slugs": []
+            },
+            "fingerprint": "d9c95f8b93fe289124ae7eba38fd6b074fafb1dbed6e95b735262667f0295a51",
+            "elapsed_ms": 0.01
+          },
+          {
+            "call_id": "call_e0b5429c8eba4a19be82033e491695b4",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "추천 결과 두 번째 정책의 자격을 확인해줘",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "90d7d59d10d730023cf4ae24f4792badb470f39d2510dd58889f6eaa85499c7c",
+            "elapsed_ms": 0.008
+          }
+        ],
+        "usage": {
+          "input_tokens": 3552,
+          "output_tokens": 159,
+          "total_tokens": 3711
+        },
+        "model_calls": 3,
+        "elapsed_ms": 5087.371
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 5087.549,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "N01",
+      "group": "clarification",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 899,
+        "output_tokens": 94,
+        "total_tokens": 993
+      },
+      "tasks": [],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "blocked",
+        "calls": [
+          {
+            "call_id": "call_7eca8ae227b4442ba38b8ca3a0b56b76",
+            "tool": "get_application_preparation",
+            "status": "blocked",
+            "error": "one_policy_required"
+          }
+        ],
+        "usage": {
+          "input_tokens": 899,
+          "output_tokens": 94,
+          "total_tokens": 993
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1451.649
+      },
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.\n\n일부 요청은 완료하지 못했습니다. 위 내용은 확인된 결과만 표시합니다.",
+      "error": "blocked",
+      "elapsed_ms": 1451.731,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N01",
+      "group": "clarification",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2880,
+        "output_tokens": 57,
+        "total_tokens": 2937
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "apply",
+        "raw": "{\"intent\":\"apply\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":true,\"confidence\":0.94,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [],
+        "is_context_dependent": true,
+        "confidence": 0.94,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] apply: 가상 보육비 지원",
+      "elapsed_ms": 1198.45,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N02",
+      "group": "clarification",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2882,
+        "output_tokens": 58,
+        "total_tokens": 2940
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":true,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [],
+        "is_context_dependent": true,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "elapsed_ms": 957.361,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N02",
+      "group": "clarification",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 901,
+        "output_tokens": 37,
+        "total_tokens": 938
+      },
+      "tasks": [],
+      "needs_input": true,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "needs_input",
+        "calls": [
+          {
+            "call_id": "call_6c6f8ccf518d49dfb36e579e41c9cf8f",
+            "tool": "check_policy_eligibility",
+            "status": "needs_input",
+            "error": null,
+            "arguments": {
+              "query": "사용자가 말한 '그 정책'의 자격 확인",
+              "policy_slugs": []
+            },
+            "fingerprint": "166669d0c3627b878d7af9daeaf5f51535ed356da0560e8e69e4ffc0fcc45ff5",
+            "elapsed_ms": 0.005
+          }
+        ],
+        "usage": {
+          "input_tokens": 901,
+          "output_tokens": 37,
+          "total_tokens": 938
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1117.795
+      },
+      "content": "대상 정책을 선택해주세요.",
+      "error": null,
+      "elapsed_ms": 1117.849,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": true
+      }
+    },
+    {
+      "case_id": "N03",
+      "group": "out_of_scope",
+      "repeat": 0,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 904,
+        "output_tokens": 97,
+        "total_tokens": 1001
+      },
+      "tasks": [],
+      "needs_input": true,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "needs_input",
+        "calls": [],
+        "usage": {
+          "input_tokens": 904,
+          "output_tokens": 97,
+          "total_tokens": 1001
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1731.434
+      },
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.",
+      "error": null,
+      "elapsed_ms": 1731.518,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": true
+      }
+    },
+    {
+      "case_id": "N03",
+      "group": "out_of_scope",
+      "repeat": 0,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2885,
+        "output_tokens": 56,
+        "total_tokens": 2941
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "unclear",
+        "raw": "{\"intent\":\"unclear\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "정책과 필요한 업무를 알려주세요.",
+      "elapsed_ms": 950.8,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": true
+      }
+    },
+    {
+      "case_id": "D01",
+      "group": "dependent",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3566,
+        "output_tokens": 176,
+        "total_tokens": 3742
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ],
+        [
+          "apply",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_f8601bf583124fd48fe53b3bd5924951",
+            "tool": "recommend_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "임신 중이고 경기 지역이며 중위소득 100이하인 상황에 맞는 정책 추천",
+              "policy_slugs": []
+            },
+            "fingerprint": "dbb44735427087ac53a5111167430b86c2efb24a3467d39c197e59578f1e6eb5",
+            "elapsed_ms": 0.012
+          },
+          {
+            "call_id": "call_2cc56aef575c4cd6a1c069df7fe82e7a",
+            "tool": "get_application_preparation",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "추천 목록 첫 번째 정책의 신청 준비 정보",
+              "policy_slugs": [
+                "demo-birth"
+              ]
+            },
+            "fingerprint": "22fdc15a42118197cb6f4db67d885c66b2954f68c6f0adc93edcf3b6a726a1e0",
+            "elapsed_ms": 0.02
+          }
+        ],
+        "usage": {
+          "input_tokens": 3566,
+          "output_tokens": 176,
+          "total_tokens": 3742
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4399.646
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] apply: 가상 출산준비 지원",
+      "error": null,
+      "elapsed_ms": 4399.736,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D01",
+      "group": "dependent",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2863,
+        "output_tokens": 57,
+        "total_tokens": 2920
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "recommend",
+        "raw": "{\"intent\":\"recommend\",\"secondary_intents\":[\"apply\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.96,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "apply"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.96,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 988.288,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D02",
+      "group": "dependent",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2863,
+        "output_tokens": 57,
+        "total_tokens": 2920
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "recommend",
+        "raw": "{\"intent\":\"recommend\",\"secondary_intents\":[\"compare\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.98,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "compare"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.98,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 955.312,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D02",
+      "group": "dependent",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3611,
+        "output_tokens": 185,
+        "total_tokens": 3796
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ],
+        [
+          "compare",
+          [
+            "demo-birth",
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_3bcabf09334245de856a2bc703243acd",
+            "tool": "recommend_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "임신 중이고 경기 지역, 중위소득 100 이하 조건에 맞는 정책 추천",
+              "policy_slugs": []
+            },
+            "fingerprint": "bb7bce6818938becaf26872d518c431f8558dc23b2891763832c1d73df1a0994",
+            "elapsed_ms": 0.022
+          },
+          {
+            "call_id": "call_9510585d4d014173baa57a4b7089810f",
+            "tool": "compare_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "추천된 첫 번째 정책과 두 번째 정책을 비교해줘",
+              "policy_slugs": [
+                "demo-birth",
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "25c310ec518bf9c53f0c46516efdf25847760c05535d276d990f6611e8532b04",
+            "elapsed_ms": 0.009
+          }
+        ],
+        "usage": {
+          "input_tokens": 3611,
+          "output_tokens": 185,
+          "total_tokens": 3796
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4569.11
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] compare: 가상 출산준비 지원, 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 4569.245,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D03",
+      "group": "dependent",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 3551,
+        "output_tokens": 166,
+        "total_tokens": 3717
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ],
+        [
+          "eligibility",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "completed",
+        "calls": [
+          {
+            "call_id": "call_24c601c0edfe4f08b6d3d909028ab044",
+            "tool": "recommend_policies",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "임신, 경기 지역, 중위소득 100이하 조건에 맞는 정책 추천",
+              "policy_slugs": []
+            },
+            "fingerprint": "d0d504f75c450dd7a2d9f90313d31e54ed85450887e2bda9020a9ad5d6f1ab5f",
+            "elapsed_ms": 0.014
+          },
+          {
+            "call_id": "call_0154f52cacf94ace932bc978cd945c56",
+            "tool": "check_policy_eligibility",
+            "status": "ok",
+            "error": null,
+            "arguments": {
+              "query": "추천 결과의 두 번째 정책(가상 보육비 지원) 자격 확인",
+              "policy_slugs": [
+                "demo-childcare"
+              ]
+            },
+            "fingerprint": "f4e35b7bdbc1c6a31bd95ec49c84e72893191c5e23a1a67367efcb65a2bce2c6",
+            "elapsed_ms": 0.018
+          }
+        ],
+        "usage": {
+          "input_tokens": 3551,
+          "output_tokens": 166,
+          "total_tokens": 3717
+        },
+        "model_calls": 3,
+        "elapsed_ms": 4230.416
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원\n\n[가상 업무 결과] eligibility: 가상 보육비 지원",
+      "error": null,
+      "elapsed_ms": 4230.532,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": 1.0,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "D03",
+      "group": "dependent",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2861,
+        "output_tokens": 58,
+        "total_tokens": 2919
+      },
+      "tasks": [
+        [
+          "recommend",
+          []
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "recommend",
+        "raw": "{\"intent\":\"recommend\",\"secondary_intents\":[\"eligibility\"],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.95,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [
+          "eligibility"
+        ],
+        "is_context_dependent": false,
+        "confidence": 0.95,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] recommend: 가상 출산준비 지원, 가상 보육비 지원",
+      "elapsed_ms": 1080.847,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": 0.5,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": null
+      }
+    },
+    {
+      "case_id": "N01",
+      "group": "clarification",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2880,
+        "output_tokens": 57,
+        "total_tokens": 2937
+      },
+      "tasks": [
+        [
+          "apply",
+          [
+            "demo-childcare"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "apply",
+        "raw": "{\"intent\":\"apply\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-childcare\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":true,\"confidence\":0.92,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-childcare",
+        "secondary_intents": [],
+        "is_context_dependent": true,
+        "confidence": 0.92,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] apply: 가상 보육비 지원",
+      "elapsed_ms": 1300.277,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N01",
+      "group": "clarification",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 899,
+        "output_tokens": 86,
+        "total_tokens": 985
+      },
+      "tasks": [],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "blocked",
+        "calls": [
+          {
+            "call_id": "call_244378b8b9094f9bbf98f595954a8343",
+            "tool": "get_application_preparation",
+            "status": "blocked",
+            "error": "one_policy_required"
+          }
+        ],
+        "usage": {
+          "input_tokens": 899,
+          "output_tokens": 86,
+          "total_tokens": 985
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1275.723
+      },
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.\n\n일부 요청은 완료하지 못했습니다. 위 내용은 확인된 결과만 표시합니다.",
+      "error": "blocked",
+      "elapsed_ms": 1275.774,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N02",
+      "group": "clarification",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 901,
+        "output_tokens": 102,
+        "total_tokens": 1003
+      },
+      "tasks": [],
+      "needs_input": false,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "blocked",
+        "calls": [
+          {
+            "call_id": "call_d68727f61b614ba599b0ab8bfb385ce6",
+            "tool": "check_policy_eligibility",
+            "status": "blocked",
+            "error": "one_policy_required"
+          }
+        ],
+        "usage": {
+          "input_tokens": 901,
+          "output_tokens": 102,
+          "total_tokens": 1003
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1612.013
+      },
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.\n\n일부 요청은 완료하지 못했습니다. 위 내용은 확인된 결과만 표시합니다.",
+      "error": "blocked",
+      "elapsed_ms": 1612.119,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N02",
+      "group": "clarification",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2882,
+        "output_tokens": 58,
+        "total_tokens": 2940
+      },
+      "tasks": [
+        [
+          "eligibility",
+          [
+            "demo-birth"
+          ]
+        ]
+      ],
+      "needs_input": false,
+      "decision": {
+        "intent": "eligibility",
+        "raw": "{\"intent\":\"eligibility\",\"secondary_intents\":[],\"resolved_policy_slug\":\"demo-birth\",\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":true,\"confidence\":0.97,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": "demo-birth",
+        "secondary_intents": [],
+        "is_context_dependent": true,
+        "confidence": 0.97,
+        "ambiguity_reason": null
+      },
+      "content": "[가상 업무 결과] eligibility: 가상 출산준비 지원",
+      "elapsed_ms": 1088.267,
+      "scores": {
+        "exact_task_match": false,
+        "task_recall": null,
+        "task_precision": 0.0,
+        "policy_argument_match": false,
+        "clarification_correct": false
+      }
+    },
+    {
+      "case_id": "N03",
+      "group": "out_of_scope",
+      "repeat": 1,
+      "arm": "A",
+      "usage": {
+        "input_tokens": 2885,
+        "output_tokens": 56,
+        "total_tokens": 2941
+      },
+      "tasks": [],
+      "needs_input": true,
+      "decision": {
+        "intent": "unclear",
+        "raw": "{\"intent\":\"unclear\",\"secondary_intents\":[],\"resolved_policy_slug\":null,\"similar_policy_requested\":false,\"extracted_profile\":null,\"is_context_dependent\":false,\"confidence\":0.99,\"ambiguity_reason\":null}",
+        "resolved_policy_slug": null,
+        "secondary_intents": [],
+        "is_context_dependent": false,
+        "confidence": 0.99,
+        "ambiguity_reason": null
+      },
+      "content": "정책과 필요한 업무를 알려주세요.",
+      "elapsed_ms": 1040.561,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": true
+      }
+    },
+    {
+      "case_id": "N03",
+      "group": "out_of_scope",
+      "repeat": 1,
+      "arm": "B",
+      "usage": {
+        "input_tokens": 904,
+        "output_tokens": 87,
+        "total_tokens": 991
+      },
+      "tasks": [],
+      "needs_input": true,
+      "trace": {
+        "version": "responses-business-tools-v1",
+        "stop_reason": "needs_input",
+        "calls": [],
+        "usage": {
+          "input_tokens": 904,
+          "output_tokens": 87,
+          "total_tokens": 991
+        },
+        "model_calls": 1,
+        "elapsed_ms": 1842.002
+      },
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.",
+      "error": null,
+      "elapsed_ms": 1842.208,
+      "scores": {
+        "exact_task_match": true,
+        "task_recall": null,
+        "task_precision": 1.0,
+        "policy_argument_match": true,
+        "clarification_correct": true
+      }
+    }
+  ],
+  "summary": {
+    "arms": {
+      "A": {
+        "by_group": {
+          "all": {
+            "rows": 32,
+            "exact_task_matches": 10,
+            "exact_task_match_rate": 0.3125,
+            "mean_task_recall": 0.5448717948717948,
+            "errors": 0
+          },
+          "single": {
+            "rows": 8,
+            "exact_task_matches": 8,
+            "exact_task_match_rate": 1.0,
+            "mean_task_recall": 1.0,
+            "errors": 0
+          },
+          "compound": {
+            "rows": 12,
+            "exact_task_matches": 0,
+            "exact_task_match_rate": 0.0,
+            "mean_task_recall": 0.2638888888888889,
+            "errors": 0
+          },
+          "dependent": {
+            "rows": 6,
+            "exact_task_matches": 0,
+            "exact_task_match_rate": 0.0,
+            "mean_task_recall": 0.5,
+            "errors": 0
+          },
+          "clarification": {
+            "rows": 4,
+            "exact_task_matches": 0,
+            "exact_task_match_rate": 0.0,
+            "mean_task_recall": null,
+            "errors": 0
+          },
+          "out_of_scope": {
+            "rows": 2,
+            "exact_task_matches": 2,
+            "exact_task_match_rate": 1.0,
+            "mean_task_recall": null,
+            "errors": 0
+          }
+        },
+        "elapsed_p50_ms": 1084.557,
+        "elapsed_p95_ms": 2083.526,
+        "provider_total_tokens": 94176,
+        "usage_rows": 32
+      },
+      "B": {
+        "by_group": {
+          "all": {
+            "rows": 32,
+            "exact_task_matches": 28,
+            "exact_task_match_rate": 0.875,
+            "mean_task_recall": 0.9615384615384616,
+            "errors": 4
+          },
+          "single": {
+            "rows": 8,
+            "exact_task_matches": 8,
+            "exact_task_match_rate": 1.0,
+            "mean_task_recall": 1.0,
+            "errors": 0
+          },
+          "compound": {
+            "rows": 12,
+            "exact_task_matches": 11,
+            "exact_task_match_rate": 0.9166666666666666,
+            "mean_task_recall": 0.9166666666666666,
+            "errors": 1
+          },
+          "dependent": {
+            "rows": 6,
+            "exact_task_matches": 6,
+            "exact_task_match_rate": 1.0,
+            "mean_task_recall": 1.0,
+            "errors": 0
+          },
+          "clarification": {
+            "rows": 4,
+            "exact_task_matches": 1,
+            "exact_task_match_rate": 0.25,
+            "mean_task_recall": null,
+            "errors": 3
+          },
+          "out_of_scope": {
+            "rows": 2,
+            "exact_task_matches": 2,
+            "exact_task_match_rate": 1.0,
+            "mean_task_recall": null,
+            "errors": 0
+          }
+        },
+        "elapsed_p50_ms": 3854.0384999999997,
+        "elapsed_p95_ms": 5986.676,
+        "provider_total_tokens": 92954,
+        "usage_rows": 32
+      }
+    },
+    "paired_rows": 32,
+    "B_wins": 18,
+    "A_wins": 0,
+    "ties": 14
+  }
+}

@@ -1,0 +1,216 @@
+diff --git a/apis/chatApi.js b/apis/chatApi.js
+index 0f4e3c3..31f09f5 100644
+--- a/apis/chatApi.js
++++ b/apis/chatApi.js
+@@ -290,6 +290,8 @@ export const normalizeAssistantMessage = (assistantMessage = {}) => {
+     id: String(payload.chat_message_id || payload.chatMessageId || payload.id || `assistant-${Date.now()}`),
+     role: "assistant",
+     content: payload.content || payload.text || "",
++    sections: Array.isArray(payload.sections) ? payload.sections.filter((section) => isObject(section?.payload)) : [],
++    executionStatus: payload.execution_status || null,
+     policies,
+     // 사용자가 '유사 정책'을 명시 요청한 답변에만 백엔드가 실어보낸다.
+     similarPolicies: Array.isArray(payload.similar_policies || payload.similarPolicies)
+@@ -310,6 +312,7 @@ export const normalizeAssistantMessage = (assistantMessage = {}) => {
+     conditionFilling: payload.condition_filling || payload.conditionFilling || null,
+     profileConfirm: payload.profile_confirm || payload.profileConfirm || null,
+     eligibilityResult: payload.eligibility_result || payload.eligibilityResult || null,
++    policySelection: payload.policy_selection || payload.policySelection || null,
+     summaryCard: normalizeSummaryCard(payload, policies),
+     recommendationRequestId:
+       payload.recommendation_request_id ||
+diff --git a/app/chat/page.js b/app/chat/page.js
+index 45d0a87..fd24cfe 100644
+--- a/app/chat/page.js
++++ b/app/chat/page.js
+@@ -10,6 +10,7 @@ import { sendMessageStream } from "@/apis/chatStreamClient";
+ import eligibilityApi from "@/apis/eligibilityApi";
+ import { createRecommendationRequest, getRecommendationResult, submitRecommendationAnswers } from "@/apis/recommendationApi";
+ import { getApiErrorMessage } from "@/apis/axiosConfig";
++import ApplyCardChat from "@/app/components/ApplyCardChat";
+ import PolicySummaryCard from "@/app/components/PolicySummaryCard";
+ import CompareChatCard from "@/app/components/CompareChatCard";
+ import EvidencesChat from "@/app/components/EvidencesChat";
+@@ -796,11 +797,7 @@ function renderPolicyCards(message, { onAnalyzeEligibility, onAskSimilar, active
+ 
+   if (message.applyCard) {
+     return (
+-      <PolicySummaryCard
+-        policy={message.applyCard}
+-        summaryCard={message.summaryCard}
+-        onAnalyzeEligibility={onAnalyzeEligibility}
+-      />
++      <ApplyCardChat {...message.applyCard} />
+     );
+   }
+ 
+@@ -927,6 +924,81 @@ function CompareGuideChatCard({ content }) {
+   );
+ }
+ 
++const POLICY_SELECTION_COPY = {
++  eligibility: {
++    title: "지원 가능성을 확인할 정책을 골라주세요",
++    description: "선택하면 지금까지 입력한 조건을 기준으로 지원 가능성을 이어서 확인해요.",
++    button: "이 정책 자격 확인",
++  },
++  apply: {
++    title: "신청 방법을 볼 정책을 골라주세요",
++    description: "선택한 정책의 신청 준비 정보를 이어서 안내해요.",
++    button: "이 정책 신청 방법",
++  },
++  compare: {
++    title: "비교할 정책을 골라주세요",
++    description: "선택한 정책을 기준으로 비교할 정책을 이어서 확인해요.",
++    button: "이 정책 선택",
++  },
++  policy_summary: {
++    title: "자세히 볼 정책을 골라주세요",
++    description: "선택한 정책의 핵심 내용을 이어서 정리해요.",
++    button: "이 정책 설명",
++  },
++};
++
++const getPolicySelectionName = (policy) =>
++  policy?.policy_name || policy?.policyName || policy?.name || "";
++
++function PolicySelectionChatCard({ selection, disabled, onSelect }) {
++  const candidates = Array.isArray(selection?.candidates) ? selection.candidates : [];
++  if (candidates.length === 0) return null;
++
++  const copy = POLICY_SELECTION_COPY[selection?.intent] || {
++    title: "확인할 정책을 골라주세요",
++    description: "선택한 정책을 기준으로 다음 안내를 이어가요.",
++    button: "이 정책 선택",
++  };
++
++  return (
++    <section className="dd-policy-selection" aria-label="정책 선택">
++      <div className="dd-policy-selection-head">
++        <span className="dd-icon-tile dd-tile-blue">
++          <Icon name="ListChecks" size={18} />
++        </span>
++        <span>
++          <strong>{copy.title}</strong>
++          <span>{copy.description}</span>
++        </span>
++      </div>
++      <div className="dd-policy-selection-list">
++        {candidates.map((policy, index) => {
++          const name = getPolicySelectionName(policy);
++          if (!name) return null;
++          const reason = policy?.reason_summary || policy?.reasonSummary || policy?.summary || null;
++          return (
++            <button
++              key={policy?.slug || policy?.policy_id || policy?.policyId || `${name}-${index}`}
++              type="button"
++              className="dd-policy-selection-option"
++              onClick={() => onSelect?.(name)}
++              disabled={disabled}
++            >
++              <span>
++                <strong>{name}</strong>
++                {reason && <small>{reason}</small>}
++              </span>
++              <span className="dd-policy-selection-action">
++                {disabled ? "확인 중" : copy.button} <Icon name="ArrowRight" size={14} />
++              </span>
++            </button>
++          );
++        })}
++      </div>
++    </section>
++  );
++}
++
+ function RequestStatusMessage({ message, onRetryRequest }) {
+   if (
+     !message.requestStatus ||
+@@ -1014,7 +1086,45 @@ function RequestStatusMessage({ message, onRetryRequest }) {
+   );
+ }
+ 
+-function AssistantMessage({ message, isStreaming, onAnalyzeEligibility, onAskSimilar, activePolicyId, onRetryRequest }) {
++function AssistantMessage({ message, isStreaming, isSending, onAnalyzeEligibility, onAskSimilar, onSelectPolicy, activePolicyId, onRetryRequest }) {
++  // Each verified business result keeps its own cards and evidence. Do not
++  // collapse two application cards into the legacy singular applyCard field.
++  if (!isStreaming && message.sections?.length > 1) {
++    const titles = {
++      recommend_policies: "정책 추천",
++      get_policy_information: "정책 정보",
++      compare_policies: "정책 비교",
++      check_policy_eligibility: "지원 자격 확인",
++      get_application_preparation: "신청 준비",
++    };
++    return (
++      <div style={{ display: "grid", gap: 18 }}>
++        {message.sections.map((section, index) => (
++          <section key={section.result_ref || index} aria-label={titles[section.tool] || "상담 결과"}>
++            <h3 style={{ fontSize: 14, margin: "0 0 8px 48px" }}>
++              {titles[section.tool] || "상담 결과"}
++            </h3>
++            <AssistantMessage
++              message={{
++                ...normalizeAssistantMessage({ ...section.payload, sections: [] }),
++                id: `${message.id}-${section.result_ref || index}`,
++              }}
++              isStreaming={false}
++              isSending={isSending}
++              onAnalyzeEligibility={onAnalyzeEligibility}
++              onAskSimilar={onAskSimilar}
++              onSelectPolicy={onSelectPolicy}
++              activePolicyId={activePolicyId}
++              onRetryRequest={onRetryRequest}
++            />
++          </section>
++        ))}
++        {message.executionStatus && !["completed", "needs_input"].includes(message.executionStatus) && (
++          <p role="status" style={{ marginLeft: 48 }}>일부 요청은 완료하지 못했습니다. 확인된 결과를 표시합니다.</p>
++        )}
++      </div>
++    );
++  }
+   const policySlug = getPolicySlug(message.policies?.[0]);
+   const actions = message.actions || [];
+   const compareGuideContent = parseCompareGuideContent(message.content);
+@@ -1052,6 +1162,12 @@ function AssistantMessage({ message, isStreaming, onAnalyzeEligibility, onAskSim
+           <>
+             {renderPolicyCards(message, { onAnalyzeEligibility, onAskSimilar, activePolicyId })}
+ 
++            <PolicySelectionChatCard
++              selection={message.policySelection}
++              disabled={isSending}
++              onSelect={onSelectPolicy}
++            />
++
+             {hasPolicySummaryCard ? (
+               <PolicySummaryCards
+                 message={message}
+@@ -2304,6 +2420,16 @@ export default function ChatPage() {
+     [send]
+   );
+ 
++  // 모호한 정책 지시어에 대한 후보 선택. 백엔드의 clarification pending이
++  // 다음 메시지를 원래 intent(자격 확인·신청 등)로 이어서 처리한다.
++  const selectPolicyForPendingIntent = useCallback(
++    (policyName) => {
++      if (!policyName || sending || restoring) return;
++      send(policyName);
++    },
++    [restoring, send, sending]
++  );
++
+   const selectSession = useCallback(
+     async (sessionId) => {
+       if (!sessionId || sessionId === activeSessionId) return;
+@@ -2480,8 +2606,10 @@ export default function ChatPage() {
+                       key={message.id}
+                       message={message}
+                       isStreaming={message.id === streamingMessageId}
++                      isSending={sending}
+                       onAnalyzeEligibility={startEligibilityAnalysis}
+                       onAskSimilar={askSimilar}
++                      onSelectPolicy={selectPolicyForPendingIntent}
+                       activePolicyId={activeEligibility?.status === REQUEST_STATUS.PROCESSING ? activeEligibility?.policyId : null}
+                       onRetryRequest={retryRequestMessage}
+                     />

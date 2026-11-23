@@ -1,0 +1,419 @@
+{
+  "boundary": "Real FastAPI ASGI HTTP + local source-backed PGVector corpus + actual OpenAI. No browser/network E2E.",
+  "corpus_embeddings": 21,
+  "steps": [
+    {
+      "name": "signup",
+      "status": 201,
+      "user_created": true
+    },
+    {
+      "name": "create_session",
+      "status": 201
+    },
+    {
+      "name": "single_information",
+      "status": 201,
+      "elapsed_ms": 10661.9,
+      "execution_status": "completed",
+      "section_count": 1,
+      "sections": [
+        {
+          "result_ref": "result_1",
+          "tool": "get_policy_information",
+          "intent": "policy_summary",
+          "status": "ok",
+          "payload": {
+            "content": "무료법률상담은 법률 관련 간담, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등에 대한 상담을 지원합니다.  \n법률 상담이 필요한 국민을 대상으로 하는 정책입니다.  \n신청은 거주지 읍·면·동 주민센터나 대한변협 법률구조재단, 대한가정법률복지상담원, 한국가정법률상담소, 대한법률구조공단에서 서비스 신청을 할 수 있습니다.  \n정확한 대상 여부와 진행 절차는 주민센터나 관련 기관에 확인해 보시는 것이 좋아요.",
+            "user_status": null,
+            "sources": [],
+            "policies": [
+              {
+                "policy_id": 242,
+                "slug": "WLF00006308",
+                "policy_name": "무료법률상담"
+              }
+            ],
+            "evidences": [
+              {
+                "chunk_id": 5,
+                "policy_id": 242,
+                "snippet": "정책명: 무료법률상담\n섹션: 지원 내용\n법률 관련 간담 상단, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등 무료법률상담을 지원합니다.",
+                "source_title": "무료법률상담 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00006308",
+                "score": 0.7798720168765725,
+                "evidence_role": "benefit"
+              },
+              {
+                "chunk_id": 4,
+                "policy_id": 242,
+                "snippet": "정책명: 무료법률상담\n섹션: 공식 지원대상 원문\n법률 상담이 필요한 국민을 대상으로 지원합니다.",
+                "source_title": "무료법률상담 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00006308",
+                "score": 0.7937163891962077,
+                "evidence_role": "target"
+              },
+              {
+                "chunk_id": 6,
+                "policy_id": 242,
+                "snippet": "정책명: 무료법률상담\n섹션: 신청 방법\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 대한변협 법률구조재단에서 ‘서비스 신청’\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 대한가정법률복지상담원에서 ‘서비스 신청’\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 한국가정법률상담소에서 ‘서비스 신청’\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 대한법률구조공단에서 ‘서비스 신청’\n조사기관연락처목록: 담당 시/군/구청 또는 대한법률구조공단에서 조사 및 심사\n조사기관연락처목록: 담당 시/군/구청 또는 한국가정법률상담소에서 조사 및 심사\n조사기관연락처목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 조사 및 심사\n조사기관연락처목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 조사 및 심사\n결정기관연락처목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 보장 결정\n결정기관연락처목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 보장 결정\n결정기관연락처목록: 담당 시/군/구청 또는 한국가정법률상담소에서 보장 결정\n결정기관연락처목록: 담당 시/군/구청 또는 대한법률구조공단에서 보장 결정\n지급기관연락처목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 대상자에게 서비스 제공\n지급기관연락처목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 대상자에게 서비스 제공\n지급기관연락처목록: 담당 시/군/구청 또는 한국가정법률상담소에서 대상자에게 서비스 제공\n지급기관연락처목록: 담당 시/군/구청 또는 대한법률구조공단에서 대상자에게 서비스 제공\n사후관리기관목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 한국가정법률상담소에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 대한법률구조공단에서 서비스 제공 이후 대상자의 상황 관리",
+                "source_title": "무료법률상담 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00006308",
+                "score": 0.6895158350880627,
+                "evidence_role": "application"
+              }
+            ],
+            "actions": [],
+            "apply_card": null,
+            "easy_summary": null,
+            "key_points": [],
+            "disclaimer": false,
+            "slot_request": null,
+            "profile_confirm": null,
+            "eligibility_result": null,
+            "suggested_actions": [],
+            "policy_selection": null,
+            "evidence_review": {
+              "verdict": "PASS",
+              "required_for": [
+                "policy_result"
+              ],
+              "evidence_count": 3,
+              "complete_evidence_count": 3,
+              "reasons": []
+            },
+            "claim_evidence_links": [
+              {
+                "claim_id": "response_sentence:1",
+                "claim_text": "무료법률상담은 법률 관련 간담, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등에 대한 상담을 지원합니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:2",
+                "claim_text": "법률 상담이 필요한 국민을 대상으로 하는 정책입니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:3",
+                "claim_text": "신청은 거주지 읍·면·동 주민센터나 대한변협 법률구조재단, 대한가정법률복지상담원, 한국가정법률상담소, 대한법률구조공단에서 서비스 신청을 할 수 있습니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:4",
+                "claim_text": "정확한 대상 여부와 진행 절차는 주민센터나 관련 기관에 확인해 보시는 것이 좋아요.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              }
+            ]
+          }
+        }
+      ],
+      "content": "무료법률상담은 법률 관련 간담, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등에 대한 상담을 지원합니다.  \n법률 상담이 필요한 국민을 대상으로 하는 정책입니다.  \n신청은 거주지 읍·면·동 주민센터나 대한변협 법률구조재단, 대한가정법률복지상담원, 한국가정법률상담소, 대한법률구조공단에서 서비스 신청을 할 수 있습니다.  \n정확한 대상 여부와 진행 절차는 주민센터나 관련 기관에 확인해 보시는 것이 좋아요.",
+      "policy_selection": null
+    },
+    {
+      "name": "compound_information",
+      "status": 201,
+      "elapsed_ms": 10221.824,
+      "execution_status": "completed",
+      "section_count": 2,
+      "sections": [
+        {
+          "result_ref": "result_1",
+          "tool": "get_policy_information",
+          "intent": "policy_summary",
+          "status": "ok",
+          "payload": {
+            "content": "무료법률상담은 법률 관련 간담, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등에 대한 무료법률상담을 지원합니다.  \n지원 대상은 법률 상담이 필요한 국민입니다.  \n신청은 거주지 읍/면/동 주민센터, 대한변협 법률구조재단, 대한가정법률복지상담원, 한국가정법률상담소, 대한법률구조공단에서 서비스 신청을 할 수 있습니다.  \n다만 참고 자료에는 신청 기간 정보가 없어서 기간은 확인이 필요합니다.",
+            "user_status": null,
+            "sources": [],
+            "policies": [
+              {
+                "policy_id": 242,
+                "slug": "WLF00006308",
+                "policy_name": "무료법률상담"
+              }
+            ],
+            "evidences": [
+              {
+                "chunk_id": 5,
+                "policy_id": 242,
+                "snippet": "정책명: 무료법률상담\n섹션: 지원 내용\n법률 관련 간담 상단, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등 무료법률상담을 지원합니다.",
+                "source_title": "무료법률상담 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00006308",
+                "score": 0.7414429121598426,
+                "evidence_role": "benefit"
+              },
+              {
+                "chunk_id": 4,
+                "policy_id": 242,
+                "snippet": "정책명: 무료법률상담\n섹션: 공식 지원대상 원문\n법률 상담이 필요한 국민을 대상으로 지원합니다.",
+                "source_title": "무료법률상담 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00006308",
+                "score": 0.7789433197439974,
+                "evidence_role": "target"
+              },
+              {
+                "chunk_id": 6,
+                "policy_id": 242,
+                "snippet": "정책명: 무료법률상담\n섹션: 신청 방법\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 대한변협 법률구조재단에서 ‘서비스 신청’\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 대한가정법률복지상담원에서 ‘서비스 신청’\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 한국가정법률상담소에서 ‘서비스 신청’\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 대한법률구조공단에서 ‘서비스 신청’\n조사기관연락처목록: 담당 시/군/구청 또는 대한법률구조공단에서 조사 및 심사\n조사기관연락처목록: 담당 시/군/구청 또는 한국가정법률상담소에서 조사 및 심사\n조사기관연락처목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 조사 및 심사\n조사기관연락처목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 조사 및 심사\n결정기관연락처목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 보장 결정\n결정기관연락처목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 보장 결정\n결정기관연락처목록: 담당 시/군/구청 또는 한국가정법률상담소에서 보장 결정\n결정기관연락처목록: 담당 시/군/구청 또는 대한법률구조공단에서 보장 결정\n지급기관연락처목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 대상자에게 서비스 제공\n지급기관연락처목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 대상자에게 서비스 제공\n지급기관연락처목록: 담당 시/군/구청 또는 한국가정법률상담소에서 대상자에게 서비스 제공\n지급기관연락처목록: 담당 시/군/구청 또는 대한법률구조공단에서 대상자에게 서비스 제공\n사후관리기관목록: 담당 시/군/구청 또는 대한변협 법률구조재단에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 대한가정법률복지상담원에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 한국가정법률상담소에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 대한법률구조공단에서 서비스 제공 이후 대상자의 상황 관리",
+                "source_title": "무료법률상담 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00006308",
+                "score": 0.6953534798170588,
+                "evidence_role": "application"
+              }
+            ],
+            "actions": [],
+            "apply_card": null,
+            "easy_summary": null,
+            "key_points": [],
+            "disclaimer": false,
+            "slot_request": null,
+            "profile_confirm": null,
+            "eligibility_result": null,
+            "suggested_actions": [],
+            "policy_selection": null,
+            "evidence_review": {
+              "verdict": "PASS",
+              "required_for": [
+                "policy_result"
+              ],
+              "evidence_count": 3,
+              "complete_evidence_count": 3,
+              "reasons": []
+            },
+            "claim_evidence_links": [
+              {
+                "claim_id": "response_sentence:1",
+                "claim_text": "무료법률상담은 법률 관련 간담, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등에 대한 무료법률상담을 지원합니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:2",
+                "claim_text": "지원 대상은 법률 상담이 필요한 국민입니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:3",
+                "claim_text": "신청은 거주지 읍/면/동 주민센터, 대한변협 법률구조재단, 대한가정법률복지상담원, 한국가정법률상담소, 대한법률구조공단에서 서비스 신청을 할 수 있습니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:4",
+                "claim_text": "다만 참고 자료에는 신청 기간 정보가 없어서 기간은 확인이 필요합니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "5",
+                  "4",
+                  "6"
+                ],
+                "linkage_status": "CANDIDATE"
+              }
+            ]
+          }
+        },
+        {
+          "result_ref": "result_2",
+          "tool": "get_policy_information",
+          "intent": "policy_summary",
+          "status": "ok",
+          "payload": {
+            "content": "에너지바우처는 하절기(당해 7~9월)에는 전기요금을, 동절기(당해 10월~익년 5월)에는 전기·도시가스·지역난방·등유·연탄·LPG 구입 비용을 세대원수에 따라 차등 지원합니다.  \n대상은 소득기준을 충족하고, 세대원 또는 세대원 본인이 노인·영유아·장애인·임산부·중증질환자·희귀질환자·중증난치질환자·한부모가족·소년소녀가정·다자녀 세대 중 하나에 해당하는 세대입니다.  \n신청은 거주지 읍/면/동 주민센터, 주민등록상 거주지 읍면동 행정복지센터, 또는 복지로 웹사이트(PC/모바일앱)에서 서비스 신청할 수 있습니다.  \n자료에는 신청 기간이 따로 적혀 있지 않아, 정확한 일정은 주민센터나 복지로에서 확인해 보시는 것이 좋아요.",
+            "user_status": null,
+            "sources": [],
+            "policies": [
+              {
+                "policy_id": 289,
+                "slug": "WLF00000072",
+                "policy_name": "에너지바우처"
+              }
+            ],
+            "evidences": [
+              {
+                "chunk_id": 17,
+                "policy_id": 289,
+                "snippet": "정책명: 에너지바우처\n섹션: 지원 내용\n(에너지바우처) 하절기(당해 7~9월) 동안 전기요금을, 동절기(당해 10월~익년 5월) 동안 전기, 도시가스, 지역난방, 등유, 연탄, LPG를 구입할 수 있는 바우처를 세대원수에 따라 4단계로 차등 지급\r실물카드(국민행복카드) 직접 결제 방식 또는 고지서 요금 자동차감 방식을 통해 지원\r(연탄전환 에너지바우처) 동절기(당해 10월~익년 5월)동안 전기, 도시가스, 등유, LPG를 구입할 수 있는 바우처를 세대원수에 관계없이 동일 지급 ㅇ 실물카드(국민행복카드) 직접 결제 방식을 통해 지원",
+                "source_title": "에너지바우처 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00000072",
+                "score": 0.7108827844254144,
+                "evidence_role": "benefit"
+              },
+              {
+                "chunk_id": 18,
+                "policy_id": 289,
+                "snippet": "정책명: 에너지바우처\n섹션: 신청 방법\n신청기관연락처목록: 거주지 읍/면/동 주민센터, 주민등록상 거주지 읍면동 행정복지센터 또는 복지로 웹사이트(PC/모바일앱)에서 ‘서비스 신청’\n조사기관연락처목록: 담당 시/군/구청 또는 해당없음에서 조사 및 심사\n결정기관연락처목록: 담당 시/군/구청 또는 시군구에서 보장 결정\n이의신청접수기관연락처목록: 이의가 있을 경우, 담당 시/군/구청 또는 행정복지센터에 이의 신청 접수\n지급기관연락처목록: 담당 시/군/구청 또는 한국에너지공단에서 대상자에게 서비스 제공\n사후관리기관목록: 담당 시/군/구청 또는 한국에너지공단에서 서비스 제공 이후 대상자의 상황 관리\n사후관리기관목록: 담당 시/군/구청 또는 시도에서 서비스 제공 이후 대상자의 상황 관리",
+                "source_title": "에너지바우처 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00000072",
+                "score": 0.7552572134928345,
+                "evidence_role": "application"
+              },
+              {
+                "chunk_id": 16,
+                "policy_id": 289,
+                "snippet": "정책명: 에너지바우처\n섹션: 공식 지원대상 원문\n(에너지바우처) 대상자 본인이 소득 기준을 충족하고 대상자 본인 또는 대상자 본인의 주민등록표 등본 상 세대원이 세대원 특성 기준을 모두 충족하는 세대\r(소득기준)  「국민기초생활보장법」에 따른 생계, 의료, 주거, 교육 급여 중 하나 이상의 급여를 받는 자\r(세대원 특성기준) 다음 어느 하나에 해당하는 자\r(노인) 주민등록기준 1961. 12. 31. 이전 출생자\r(영유아) 주민등록기준 2019. 1. 1. 이후 출생한 7세 이하의 취학 전 아동\r(장애인)「장애인복지법」에 따라 등록된 장애인)\r(임산부) 임신 중이거나 분만 후 6개월 미만인 여성)\r(중증질환자, 희귀질환자, 중증난치질환자)국민건강보험법 시행령 제19조제1항 및 [별표2]에 따라 보건복지부장관이 정하여 고시하는 중증질환, 희귀질환, 중증난치질환(「본인일부부담금 산정특례에 관한 기준」 [별표3], [별표4], [별표4의2]을 가진 사람)\r(한부모가족)「한부모가족지원법」 제5조 및 제5조의2에 따른 지원대상자\r(소년소녀가정) 보건복지부에서 정한 아동분야 사업 중 소년소녀가정 지원대상에 해당하는 사람(「아동복지법」 제3조에 의한 가정위탁보호 아동을 포함)\r(다자녀 세대) 세대원 중 부 또는 모가 있고, 그 부 또는 모의 19세 미만 자녀를 2명 이상 포함된 세대(동일 등본에 등재된 가정위탁보호아동은 자녀로 포함)\r(연탄전환 에너지바우처) 대상자 본인이 연탄전환 기준을 충족하는 세대\r(연탄전환 기준) 기존 연탄을 사용하는 세대 중 &rsquo;26. 1월 이후 연탄 외 보일러로 난방시설을 전환하고 다음 어느 하나에 해당하는 자\r(기초생활수급자) 「국민기초생활 보장법」 상 생계·의료·주거·교육급여 수급자(세대)\r(차상위계층) 기초생활수급자에 해당하지 않으면서 소득인정액이 기준 중위소득의 100분의 50 이하인 자(세대)\r(노인) 주민등록기준 1961. 12. 31. 이전 출생자\r(장애인) 「장애인복지법」에 따라 등록된 장애인\r(한부모가족) 「한부모가족지원법」 제5조 및 제5조의2에 따른 지원대상자\r(소년소녀가정) 보건복지부에서 정한 아동분야 사업 중 소년소녀가정 지원대상에 해당하는 사람(「아동복지법」 제3조에 의한 가정위탁보호 아동을 포함)",
+                "source_title": "에너지바우처 data.go.kr 정책 상세",
+                "source_url": "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfaredetailedV001?servId=WLF00000072",
+                "score": 0.6933417693789319,
+                "evidence_role": "target"
+              }
+            ],
+            "actions": [],
+            "apply_card": null,
+            "easy_summary": null,
+            "key_points": [],
+            "disclaimer": false,
+            "slot_request": null,
+            "profile_confirm": null,
+            "eligibility_result": null,
+            "suggested_actions": [],
+            "policy_selection": null,
+            "evidence_review": {
+              "verdict": "PASS",
+              "required_for": [
+                "policy_result"
+              ],
+              "evidence_count": 3,
+              "complete_evidence_count": 3,
+              "reasons": []
+            },
+            "claim_evidence_links": [
+              {
+                "claim_id": "response_sentence:1",
+                "claim_text": "에너지바우처는 하절기(당해 7~9월)에는 전기요금을, 동절기(당해 10월~익년 5월)에는 전기·도시가스·지역난방·등유·연탄·LPG 구입 비용을 세대원수에 따라 차등 지원합니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "17",
+                  "18",
+                  "16"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:2",
+                "claim_text": "대상은 소득기준을 충족하고, 세대원 또는 세대원 본인이 노인·영유아·장애인·임산부·중증질환자·희귀질환자·중증난치질환자·한부모가족·소년소녀가정·다자녀 세대 중 하나에 해당하는 세대입니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "17",
+                  "18",
+                  "16"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:3",
+                "claim_text": "신청은 거주지 읍/면/동 주민센터, 주민등록상 거주지 읍면동 행정복지센터, 또는 복지로 웹사이트(PC/모바일앱)에서 서비스 신청할 수 있습니다.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "17",
+                  "18",
+                  "16"
+                ],
+                "linkage_status": "CANDIDATE"
+              },
+              {
+                "claim_id": "response_sentence:4",
+                "claim_text": "자료에는 신청 기간이 따로 적혀 있지 않아, 정확한 일정은 주민센터나 복지로에서 확인해 보시는 것이 좋아요.",
+                "claim_type": "policy_response_sentence",
+                "candidate_chunk_ids": [
+                  "17",
+                  "18",
+                  "16"
+                ],
+                "linkage_status": "CANDIDATE"
+              }
+            ]
+          }
+        }
+      ],
+      "content": "무료법률상담은 법률 관련 간담, 손해배상, 계약 등 민사소송, 임대자, 개인회생 및 파산 등에 대한 무료법률상담을 지원합니다.  \n지원 대상은 법률 상담이 필요한 국민입니다.  \n신청은 거주지 읍/면/동 주민센터, 대한변협 법률구조재단, 대한가정법률복지상담원, 한국가정법률상담소, 대한법률구조공단에서 서비스 신청을 할 수 있습니다.  \n다만 참고 자료에는 신청 기간 정보가 없어서 기간은 확인이 필요합니다.\n\n에너지바우처는 하절기(당해 7~9월)에는 전기요금을, 동절기(당해 10월~익년 5월)에는 전기·도시가스·지역난방·등유·연탄·LPG 구입 비용을 세대원수에 따라 차등 지원합니다.  \n대상은 소득기준을 충족하고, 세대원 또는 세대원 본인이 노인·영유아·장애인·임산부·중증질환자·희귀질환자·중증난치질환자·한부모가족·소년소녀가정·다자녀 세대 중 하나에 해당하는 세대입니다.  \n신청은 거주지 읍/면/동 주민센터, 주민등록상 거주지 읍면동 행정복지센터, 또는 복지로 웹사이트(PC/모바일앱)에서 서비스 신청할 수 있습니다.  \n자료에는 신청 기간이 따로 적혀 있지 않아, 정확한 일정은 주민센터나 복지로에서 확인해 보시는 것이 좋아요.",
+      "policy_selection": null
+    },
+    {
+      "name": "ambiguous_reference",
+      "status": 201,
+      "elapsed_ms": 2824.631,
+      "execution_status": "needs_input",
+      "section_count": 1,
+      "sections": [
+        {
+          "result_ref": "result_1",
+          "tool": "get_application_preparation",
+          "intent": "apply",
+          "status": "needs_input",
+          "payload": {
+            "content": "어느 정책의 신청 준비를 말씀하시는 걸까요?  \n무료법률상담과 에너지바우처 중 하나를 알려주시면 필요한 서류와 준비사항을 바로 정리해드릴게요.",
+            "user_status": null,
+            "sources": [],
+            "policies": [],
+            "evidences": [],
+            "actions": [],
+            "apply_card": null,
+            "easy_summary": null,
+            "key_points": [],
+            "disclaimer": false,
+            "slot_request": null,
+            "profile_confirm": null,
+            "eligibility_result": null,
+            "suggested_actions": [],
+            "policy_selection": null,
+            "evidence_review": {
+              "verdict": "PASS",
+              "required_for": [],
+              "evidence_count": 0,
+              "complete_evidence_count": 0,
+              "reasons": []
+            },
+            "claim_evidence_links": []
+          }
+        }
+      ],
+      "content": "어느 정책의 신청 준비를 말씀하시는 걸까요?  \n무료법률상담과 에너지바우처 중 하나를 알려주시면 필요한 서류와 준비사항을 바로 정리해드릴게요.",
+      "policy_selection": null
+    },
+    {
+      "name": "ambiguity_assertion",
+      "status": "failed"
+    }
+  ]
+}

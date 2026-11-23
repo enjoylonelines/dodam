@@ -10,6 +10,10 @@ from app.services.chat.persistence._persistence import fallback_payload
 
 logger = logging.getLogger(__name__)
 
+# Compatibility import for existing ChatService/tests. Lazy imports in dispatch
+# avoid the cycle and leave the legacy router directly evaluable.
+from app.services.chat.routing_dispatch import run_chat
+
 _INTENT_TO_SSE: dict[str, str] = {
     "recommend": "recommendation",
     "eligibility": "eligibility",
@@ -18,7 +22,7 @@ _INTENT_TO_SSE: dict[str, str] = {
 }
 
 
-async def run_chat(
+async def run_chat_legacy(
     *,
     db: AsyncSession,
     user_id: int,

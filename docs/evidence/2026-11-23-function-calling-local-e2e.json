@@ -1,0 +1,25 @@
+{
+  "boundary": "Real FastAPI ASGI HTTP + local source-backed PGVector corpus + actual OpenAI. No browser/network E2E.",
+  "corpus_embeddings": 21,
+  "steps": [
+    {
+      "name": "signup",
+      "status": 201,
+      "user_created": true
+    },
+    {
+      "name": "create_session",
+      "status": 201
+    },
+    {
+      "name": "single_information",
+      "status": 201,
+      "elapsed_ms": 8064.416,
+      "execution_status": "temporary_error",
+      "section_count": 0,
+      "sections": [],
+      "content": "어떤 정책이나 상담 업무가 필요한지 구체적으로 알려주세요.\n\n일부 요청은 완료하지 못했습니다. 위 내용은 확인된 결과만 표시합니다.",
+      "policy_selection": null
+    }
+  ]
+}
